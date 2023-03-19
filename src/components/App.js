@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import '../styles/App.css';
 
 const App = () => {
-  const [rating, setRating] = useState();
-  const [comment, setComment] = useState();
-  const [commentError, setCommentError] = useState();
+  const [rating, setRating] = useState(5);
+  const [comment, setComment] = useState('');
+  const [commentError, setCommentError] = useState('');
 
   return (
     <div id="main">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='rating'>Rating: </label>
           <input 
