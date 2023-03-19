@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import '../styles/App.css';
 
 const App = () => {
@@ -8,27 +8,25 @@ const App = () => {
 
   const handleRatingChange = (e) => {
     setRating(e.target.value);
-  }
+  };
 
-  const handleCommentChange= (e) => {
+  const handleCommentChange = (e) => {
     setComment(e.target.value);
-    if(e.target.value.length < 5){
+    if (e.target.value.length < 5) {
       setCommentError('Comment must be atleast 5 characters.');
-    }
-    else{
+    } else {
       setCommentError('');
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(comment.length >= 5){
-      alert(`Rating: {rating}, Comment: {comment}`);
-    }
-    else{
+    if (comment.length >= 5) {
+      alert(`Rating: ${rating}, Comment: ${comment}`);
+    } else {
       setCommentError('Comment must be atleast 5 characters.');
     }
-  }
+  };
 
   return (
     <div id="main">
@@ -43,7 +41,7 @@ const App = () => {
             value={rating}
             onChange={handleRatingChange}
           />
-          <span className='rating'>rating</span>
+          <span className='rating'>{rating}</span>
         </div>
         <div>
           <label htmlFor='comment'>Comment: </label>
@@ -53,13 +51,12 @@ const App = () => {
             onChange={handleCommentChange}
             onBlur={handleCommentChange}
           />
-          {commentError && <p style={{ color: 'red' }} className="comment-error">Comment must be atleast 5 characters.</p>}
+          {commentError && <p style={{ color: 'red' }} className="comment-error">{commentError}</p>}
         </div>
         <button type='submit'>Submit</button>
       </form>
     </div>
-  )
-}
-
+  );
+};
 
 export default App;
