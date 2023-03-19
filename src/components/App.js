@@ -12,7 +12,7 @@ const App = () => {
 
   const handleCommentChange= (e) => {
     setComment(e.target.value);
-    if(e.target.value < 5){
+    if(e.target.value.length < 5){
       setCommentError('Comment must be atleast 5 characters.');
     }
     else{
